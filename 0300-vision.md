@@ -191,20 +191,54 @@ to follow.
 
 ### Programmers Write Tests
 
-### The Tests Catch Mistakes
-
 ### The Tests Are Fast
 
 ### Everyone Can Run The Tests
 
+### The Tests Catch Mistakes
+
 ### Feedback Is Effortless
+
+### Review Happens Continuously
+
+### Tests are a Collaboration Tool
+
+e.g. ping-pong pairing
+
+e.g. cross-team contract testing
+
+### Vacations are Not Show-Stoppers
+
+### Dependencies are Visible and Understood
 
 ### The Effects of Code Are Obvious From Its Interface
 
-### Contracts are Formalized
+### Contracts Are Formalized
+
+### Technical Constraints Align With Social Constraints
+
+### Much of the Code Never Has to Change
 
 ### Status Is Evident
 
-### Code is Symmetrical
+### Code Is Symmetrical
 
 ### Important Differences Stand Out
+
+### Internal Design Is Emergent
+
+### Bugs Are Easy to Fix
+
+### Code Can Be Repurposed
+
+e.g. to diagnose production issues.
+
+"write code that you trust enough to call during a
+production outage"
+
+### There Is Constant, Gradual Improvement
+
+Example: team reducing duplication and improving code
+organization
+
+### The Right Thing to Do Becomes Obvious

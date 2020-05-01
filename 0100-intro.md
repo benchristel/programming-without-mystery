@@ -52,8 +52,10 @@ This book has five main sections.
 - Two **case studies** showing how I've applied TDD to my own
   open-source projects. These go into detail with code
   examples and explanations of the techniques I applied.
-- A **reference section** that collects techniques from the
-  case studies.
+- A **reference section** that collects ideas and techniques
+  from the earlier chapters. Essentially, this is a
+  recapitulation of the main points of the book, optimized
+  for easy access.
 - A list of **further resources**: the books, papers, and
   videos that have helped and inspired me.
 

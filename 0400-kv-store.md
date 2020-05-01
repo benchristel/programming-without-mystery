@@ -5,6 +5,13 @@ an immutable key-value store with an HTTP API. Here,
 *immutable* means that overwritten values in the store are
 preserved, and can be accessed later by revision number.
 
+Implementing a key-value store might seem trivial. But the
+requirement to make it *immutable* opens the door to a world
+of intriguing complexity. What's the most space-efficient
+way to store and access different versions of values?
+How can we avoid storing tons of duplicate data when someone
+changes a few bytes in the middle of a multi-megabyte file?
+
 The code for this project is in Ruby. Ruby is an interpreted
 object-oriented language, vaguely similar to Smalltalk,
 Python, and Perl. I've rewritten some of the example code
