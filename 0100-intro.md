@@ -42,21 +42,27 @@ the same for you.
 
 ## What's In This Book?
 
-This book has five main sections.
+This book has seven main sections.
 
-- A **glossary** of common terms that you'll encounter
-  throughout this book and in other resources on TDD.
-- A **vision of effective TDD**, presenting my experiences
-  of software teams that have successfully integrated the
-  practice into their workflows.
-- Two **case studies** showing how I've applied TDD to my own
-  open-source projects. These go into detail with code
+- **Why Test-Drive?** Enumerates the goals that TDD
+  helps software teams achieve, and presents a vision of
+  what work can be like when TDD done well. These descriptions are grounded in my experiences on many different teams that
+  have successfully integrated TDD into their workflows.
+- **Difficulties.** Describes all the ways in which TDD can go
+  awry. It provides important context for understanding the
+  warnings and caveats in later sections.
+- **A Case Study.** Shows how I've applied TDD to one of my own projects. It goes into detail with code
   examples and explanations of the techniques I applied.
-- A **reference section** that collects ideas and techniques
-  from the earlier chapters. Essentially, this is a
-  recapitulation of the main points of the book, optimized
+- **Principles.** Distills general principles
+  from the case study and illustrates them with specific
+  examples.
+- **Reference.** Summarizes the ideas and
+  techniques from the earlier chapters. Essentially, this is
+  a recapitulation of the main points of the book, optimized
   for easy access.
-- A list of **further resources**: the books, papers, and
+- **Coda.** Offers a holistic view of the book's subject
+  matter, lest we miss the forest for the trees.
+- **Further Resources.** Lists the books, papers, and
   videos that have helped and inspired me.
 
 ## Who Should Read This Book?
