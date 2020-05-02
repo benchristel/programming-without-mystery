@@ -1,4 +1,4 @@
-# Case Study 1: An Immutable Key-Value Store
+# Case Study: An Immutable Key-Value Store
 
 In this chapter, I'll be exploring the implementation of
 an immutable key-value store with an HTTP API. Here,
