@@ -1,12 +1,14 @@
-# Vision
+# Why Test-Drive?
 
-## The Five Goals
+## Five Goals of TDD
 
-This chapter describes five outcomes that TDD enables: a
-high-quality product; safe, easy change; less waste;
-enthusiasm; and responsibility and trust. These are the
-high-level goals that motivate me to practice test-driven
-development.
+This chapter describes five outcomes that TDD enables. You
+can think of them as reasons to do TDD.
+They are: **a
+high-quality product**; **safe, easy change**;
+**less waste**;
+**enthusiasm**;
+and **responsibility and trust**.
 
 ### A High-Quality Product
 
@@ -203,6 +205,8 @@ to follow.
 
 ### Tests are a Collaboration Tool
 
+tests start conversations
+
 e.g. ping-pong pairing
 
 e.g. cross-team contract testing
@@ -221,7 +225,7 @@ e.g. cross-team contract testing
 
 ### Status Is Evident
 
-### Code Is Symmetrical
+### The Code Has Natural Symmetry
 
 ### Important Differences Stand Out
 
