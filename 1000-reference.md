@@ -43,3 +43,6 @@ green
 ## How to Start a Project
 
 ## Techniques
+
+
+## List of Code Smells

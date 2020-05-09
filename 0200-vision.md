@@ -193,9 +193,18 @@ to follow.
 
 ### Programmers Write Tests
 
+A necessity of TDD is that the programmers writing
+the production code must also write the tests. There's
+simply no other way for the tests to be written in tandem
+with the code. That programmers write tests is already a
+given in most modern organizations, but I thought I'd call
+it out explicitly.
+
 ### The Tests Are Fast
 
 ### Everyone Can Run The Tests
+
+### The Tests Run Frequently
 
 ### The Tests Catch Mistakes
 

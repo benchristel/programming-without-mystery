@@ -1,6 +1,8 @@
 # Difficulties
 
-## Test-Driven Development
+## Myths about TDD
+
+### Myth: Test-Driven Development is Just Red-Green-Refactor
 
 TDD is not just red-green-refactor. If it were, this book
 would be a lot shorter. Rather, I use the term TDD to refer
@@ -12,7 +14,7 @@ Some critics of TDD seem to equate it with
 red-green-refactor. This conflation is often what leads to
 claims like “TDD doesn’t work, and I have a controlled study
 to prove it.” What these studies have actually shown is that
-the red-green-refactor process by itself doesn’t make a
+the red-green-refactor process *by itself* doesn’t make a
 difference to how good your code ends up.  That’s a very
 different claim than “TDD doesn’t work,” and it’s one that
 matches my experience perfectly.
@@ -55,8 +57,6 @@ put it this way:
 > Then, once this discipline has done its work, and pricked the bubbles of illusion which we cling to now, we will be ready to give up the discipline, and act as nature does.
 >
 > This is the timeless way of building: learning the discipline—and shedding it.
-
-## Myths
 
 ### Myth: TDD Is Just Red-Green-Refactor
 
