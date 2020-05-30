@@ -46,7 +46,8 @@ This book has seven main sections.
 
 - **Why Test-Drive?** Enumerates the goals that TDD
   helps software teams achieve, and presents a vision of
-  what work can be like when TDD done well. These descriptions are grounded in my experiences on many different teams that
+  what work can be like when TDD is done well. These
+  descriptions are grounded in my experiences on many different teams that
   have successfully integrated TDD into their workflows.
 - **Difficulties.** Describes all the ways in which TDD can go
   awry. It provides important context for understanding the
