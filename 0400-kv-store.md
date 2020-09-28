@@ -213,9 +213,9 @@ very beginning, and adding complexity only where it's
 required. You might think this would eventually lead to me
 reimplementing all the stuff I would have gotten
 "for free" with a project template, but in fact, a lot
-of that stuff just isn't necessary. When you have fast,
-reliable tests, the need for many other development tools
-and conveniences simply melts away.
+of that stuff just isn't necessary. When you have simple code with fast,
+reliable tests, the need for many other development tools and conveniences
+melts away.
 
 When creating a walking skeleton, I usually create a file
 structure something like this:
@@ -476,65 +476,145 @@ In the previous section, I used the terms *unit test* and *functional test* with
 
 ### Unit Tests
 
-"Unit test" is probably one of the most overloaded, ambiguous terms in software. Everyone seems to mean something different when they say they do “unit testing”, and many a flame war has been fought over which definition is the “right” one.
+"Unit test" is probably one of the most overloaded, ambiguous terms in
+software. Everyone seems to mean something different when they say they do
+“unit testing”, and many a flame war has been fought over which definition is
+the “right” one.
 
-In this book, I’ll define what a unit test is by taking the set union of the definitions I see in common use. That is, if a bunch of people on the internet and in my social circle say something’s a unit test, I’ll include it in my definition.
+In this book, I’ll define what a unit test is by taking the set union of the
+definitions I see in common use. That is, if a bunch of people on the internet
+and in my social circle say something’s a unit test, I’ll include it in my
+definition.
 
 To qualify as a unit test, a test must have these three attributes:
 
-- It can be run in any order relative to other tests, or by itself. It does not depend on other tests to put the software into the right state, nor does it interfere with any other test.
-- It calls methods/functions/procedures of the production code directly. To make this easier, unit tests are almost always written in the same language as the production code.
-- It does not depend on a deployed system. You don’t have to build or run the whole application to run a unit test.
+- It can be run in any order relative to other tests, or by itself. It does not
+  depend on other tests to put the software into the right state, nor does it
+  interfere with any other test.
+- It calls methods/functions/procedures of the production code directly. To
+  make this easier, unit tests are almost always written in the same language as
+  the production code.
+- It does not depend on a deployed system. You don’t have to build or run the
+  whole application to run a unit test.
 
-Some people say a unit test has to test only a single class in isolation from all others, or even a single method of a class. I find that definition unhelpfully restrictive. The more extreme form, which posits that a unit test must test only one method, effectively prohibits object-oriented programming, since the only reason to have objects is if the methods of an object can interact in an interesting way. When writing object-oriented code, it is often precisely these interactions between methods that we want to test.
+Some people say a unit test has to test only a single class in isolation from
+all others, or even a single method of a class. I find that definition
+unhelpfully restrictive. The more extreme form, which posits that a unit test
+must test only one method, effectively prohibits object-oriented programming,
+since the only reason to have objects is if the methods of an object can
+interact in an interesting way. When writing object-oriented code, it is often
+precisely these interactions between methods that we want to test.
 
-The idea that every production class must have a corresponding unit test is unhelpful in a different way: it makes refactorings that create new, privately-used classes and functions more expensive, since you have to also create tests for them, even if the existing tests completely (though indirectly) cover their behavior. Directly testing classes that are private to a module unnecessarily ossifies their interfaces: if no one outside the module is using that class, why should the tests care if it even exists?
+The idea that every production class must have a corresponding unit test is
+unhelpful in a different way: it makes refactorings that create new,
+privately-used classes and functions more expensive, since you have to also
+create tests for them, even if the existing tests completely (though
+indirectly) cover their behavior. Directly testing classes that are private to
+a module unnecessarily ossifies their interfaces: if no one outside the module
+is using that class, why should the tests care if it even exists?
 
 ### Functional Tests
 
 *Functional tests* test the behavior of the entire application. They're a type of *system test*.
 
-I chose the preceding definition of unit test in part because it contrasts cleanly with *system test*. Unlike unit tests, system tests interact with a deployed application. Since they don’t directly call methods or functions in the application code, they may be written in a completely different programming language.
+I chose the preceding definition of unit test in part because it contrasts
+cleanly with *system test*. Unlike unit tests, system tests interact with a
+deployed application. Since they don’t directly call methods or functions in
+the application code, they may be written in a completely different programming
+language.
 
 - There are many reasons to write a system test. Here are some:
   to test that specific features are working (functional testing)
-- to test that specific use-cases or workflows work the way the stakeholders wanted (acceptance testing)
-- to test that the components that make up the system (e.g. databases, web services, and operating systems) interoperate (integration testing)
-- to measure how well the system handles large amounts of work (load testing) or to find out how much load has to be applied before it completely breaks (stress testing)
-- to verify that the system can be upgraded or downgraded with no data loss (migration testing)
-- to verify that the system can come back online after a crash, with no data loss (recovery testing)
+- to test that specific use-cases or workflows work the way the stakeholders
+  wanted (acceptance testing)
+- to test that the components that make up the system (e.g. databases, web
+  services, and operating systems) interoperate (integration testing)
+- to measure how well the system handles large amounts of work (load testing)
+  or to find out how much load has to be applied before it completely breaks
+  (stress testing)
+- to verify that the system can be upgraded or downgraded with no data loss
+  (migration testing)
+- to verify that the system can come back online after a crash, with no data
+  loss (recovery testing)
 
-While your application likely needs some system testing, it’s not the focus of this book. While some ideas from TDD can be fruitfully applied to system testing, the red-green-refactor cycle can’t be. System tests are simply too slow to fit into the TDD rhythm.
+While your application likely needs some system testing, it’s not the focus of
+this book. While some ideas from TDD can be fruitfully applied to system
+testing, the red-green-refactor cycle can’t be. System tests are simply too
+slow to fit into the TDD rhythm.
 
-Many teams overdo system testing. Functional tests, in particular, are seductive because they are the most obvious way to test a program’s features. However, they tend to be slow to run and expensive to maintain.
+Many teams overdo system testing. Functional tests, in particular, are
+seductive because they are the most obvious way to test a program’s features.
+However, they tend to be slow to run and expensive to maintain.
 
-Over-reliance on functional testing is often a sign that programmers don’t understand or trust the software’s architecture—the way the pieces fit together—and thus don’t trust the unit tests to tell them if something’s broken. The solution is internal quality, not more functional testing. In a well-architected application whose code affords mental modeling, most functional tests can be replaced by unit tests. I generally use a combination of unit testing, manual testing through the UI, and a robust mental model of the program’s structure to convince myself that a feature works.
+Over-reliance on functional testing is often a sign that programmers don’t
+understand or trust the software’s architecture—the way the pieces fit
+together—and thus don’t trust the unit tests to tell them if something’s
+broken. The solution is internal quality, not more functional testing. In a
+well-architected application whose code affords mental modeling, most
+functional tests can be replaced by unit tests. I generally use a combination
+of unit testing, manual testing through the UI, and a robust mental model of
+the program’s structure to convince myself that a feature works.
 
-Of course, this nonchalant attitude towards functional testing only makes sense in the context of  a rigorous unit-testing discipline. In later chapters, I’ll discuss the strategies I use to write unit tests I can trust.
+Of course, this nonchalant attitude towards functional testing only makes sense
+in the context of a rigorous unit-testing discipline. In later chapters, I’ll
+discuss the strategies I use to write unit tests I can trust.
 
 ## Technique: Scaffold the Project With Functional Tests
 
-Although I just said that I don't like to overdo functional testing, we've started this project with no unit tests and one functional test, and we're about to add more. Early on in a project, the advantages of functional testing outweigh its costs:
+Although I just said that I don't like to overdo functional testing, we've
+started this project with no unit tests and one functional test, and we're
+about to add more. Early on in a project, the advantages of functional testing
+outweigh its costs:
 
-- Functional tests help us check that the production code portion of our walking skeleton is working.
-- Functional tests don't pin down any of the *internal* interfaces of our code (e.g. classes and methods), so we're free to redesign those internals without changing the tests. This flexibility can be a boon early on in a project, when even the high-level architecture of the internals is still in flux.
-- Functional tests run relatively quickly when there's not much code in the project. (On my machine, the "hello world" test takes 7 or 8 seconds to run—most of that being setup and teardown.)
+- Functional tests help us check that the production code portion of our
+  walking skeleton is working.
+- Functional tests don't pin down any of the *internal* interfaces of our code
+  (e.g. classes and methods), so we're free to redesign those internals without
+  changing the tests. This flexibility can be a boon early on in a project, when
+  even the high-level architecture of the internals is still in flux.
+- Functional tests run relatively quickly when there's not much code in the
+  project. (On my machine, the "hello world" test takes 7 or 8 seconds to
+  run—most of that being setup and teardown.)
 
-That said, we can't rely on functional tests forever. As the project grows the functional tests will take longer and longer to run, and it will become harder and harder to write tests that *drive out* (i.e. force us to implement) the specific behaviors we care about. We will eventually have to pivot our strategy toward unit testing. Later on, we'll see how to make that transition smoothly and safely.
+That said, we can't rely on functional tests forever. As the project grows the
+functional tests will take longer and longer to run, and it will become harder
+and harder to write tests that *drive out* (i.e. force us to implement) the
+specific behaviors we care about. We will eventually have to pivot our strategy
+toward unit testing. Later on, we'll see how to make that transition smoothly
+and safely.
 
-For now, we'll forge ahead and write our first real functional test. The question is, what behavior of our program do we want to test-drive first?
+For now, we'll forge ahead and write our first real functional test. The
+question is, what behavior of our program do we want to test-drive first?
 
 ## Technique: Don't Go for the Gold
 
-When people first start doing TDD, they often want to jump right into testing the most fundamental, central behavior of their program. Since we're writing a key-value store, the central behavior might be setting and getting several different keys.
+When people first start doing TDD, they often want to jump right into testing
+the most fundamental, central behavior of their program. Since we're writing a
+key-value store, the central behavior might be setting and getting several
+different keys.
 
-Patience is needed here. If you jump straight to the central behavior, you'll lose much of the benefit of TDD. Bob Martin phrases this advice as "don't go for the gold".
+Patience is needed here. If you jump straight to the central behavior, you'll
+lose much of the benefit of TDD. Bob Martin phrases this advice as "don't go
+for the gold".
 
-If we tried, right now, to implement setting and getting keys, we'd discover we needed to implement a lot of other things. We'd have to parse the HTTP request. We'd have to handle errors somehow (or just let them propagate) and make a mental note to come back and test all those error cases. We'd have to decide how to format responses. After perhaps half an hour or an hour of work, we'd have one passing test, and a sinking feeling that not all of our code's behavior is really tested. We'd also have a mental to-do list of error cases and edge cases that we should really go back and test later. *This is exactly the situation that TDD is intended to help us avoid.* TDD is a tool for removing uncertainty and shortening our mental stack.
+If we tried, right now, to implement setting and getting keys, we'd discover we
+needed to implement a lot of other things. We'd have to parse the HTTP request.
+We'd have to handle errors somehow (or just let them propagate) and make a
+mental note to come back and test all those error cases. We'd have to decide
+how to format responses. After perhaps half an hour or an hour of work, we'd
+have one passing test, and a sinking feeling that not all of our code's
+behavior is really tested. We'd also have a mental to-do list of error cases
+and edge cases that we should really go back and test later. *This is exactly
+the situation that TDD is intended to help us avoid.* TDD is a tool for
+removing uncertainty and shortening our mental stack.
 
-One technique for avoiding this situation is to start with the error cases, edge cases, and degenerate cases. *We're going to avoid the central behavior of the key-value store for as long as possible.* That way, when we do go to implement it, it will be clean and simple: all the tricky bits will already be handled.
+One technique for avoiding this situation is to start with the error cases,
+edge cases, and degenerate cases. *We're going to avoid the central behavior of
+the key-value store for as long as possible.* That way, when we do go to
+implement it, it will be clean and simple: all the tricky bits will already be
+handled.
 
-Back to Fridge: the behavior I chose to test first was an
+With all of that in mind, the behavior I chose to test first was an
 endpoint `/revisions/latest`, which returns the ID of the
 current *revision* of the data.  You might notice that this
 endpoint isn't described in the README! This is fine; the
@@ -576,7 +656,9 @@ end
 We're parsing the HTTP response body as JSON, and asserting it's equal to the hashmap
 `{"id" => 0}`.
 
-This test, of course, fails, because the server is returning `"Hello, World!"` in response to every request. We can pass the test by changing the server code to:
+This test, of course, fails, because the server is returning `"Hello, World!"`
+in response to every request. We can pass the test by changing the server code
+to:
 
 ```ruby
 get "*" do
@@ -587,7 +669,8 @@ end
 Some readers will no doubt find this troubling. We haven't implemented anything interesting! We're
 just hardcoding exactly the response the test expects!
 
-However, this stupid-simple approach to making the tests pass has benefits. It's a technique that I call *calibrating the tests.*
+However, this stupid-simple approach to making the tests pass has benefits.
+It's a technique that I call *calibrating the tests.*
 
 ## Technique: Calibrate Your Tests
 
@@ -732,7 +815,7 @@ in the reference chapter near the end of this book.
 Why consider code smells at all?
 Identifying code smells before you refactor makes the
 process of refactoring less subjective. When you refactor,
-it's all to easy to get lost in a maze of different design
+it's all too easy to get lost in a maze of different design
 approaches, or, at the opposite end of the spectrum,
 doggedly pursue some "perfect" design that ends up being
 impractical. I've found that teammates often differ in
@@ -764,7 +847,7 @@ form of the _deep hierarchy_ smell. Deeply nested
 syntactical structures are hard for humans to parse intuitively;
 our linguistic hardware just isn't wired for it.
 
-The refactoring to flatten out the syntactical hierarchy
+One refactoring to flatten out the syntactical hierarchy
 is _Extract Variable_. Applying this refactoring
 twice, we get:
 

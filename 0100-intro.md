@@ -1,6 +1,47 @@
 # Introduction
 
-This book is about how to apply the programming technique
+This book collects a set of ideas, principles, and
+techniques which I collectively term
+*Empirical Software Development* (ESD). ESD provides
+scientific approaches to solving the following problems:
+
+- Deciding what software to build
+- Finding defects in existing software
+- Deciding what modifications to make to existing software
+- Designing the details of user interfaces
+- Creating maintainable, bug-free code
+
+## ESD, Abstractly
+
+ESD applies a single, fundamental process, closely mirroring the scientific method, to each problem that arises in software development.
+
+- Observe the system.
+- Formulate a theory about the system, in the form of a set
+  of rules describing its behavior.
+- Try to prove that the theory is wrong, by finding 
+  specific situations that break the rules.
+- When you find such a situation, revise the theory so
+  that it accommodates all observations to date and is as 
+  simple and general as possible.
+- Repeat until a desired level of confidence in the theory
+  is reached.
+
+The following auxiliary principles are also observed:
+
+- Keep a record of the experiments that falsified past
+  theories, as they may also be useful in falsifying
+  future ones.
+- Keep the time and effort needed to falsify a theory to an
+  absolute minimum.
+
+That is everything you need to know about ESD, in the abstract. How best to apply these rules to specific cases
+is, unfortunately, not always obvious. The rest of this
+book is thus dedicated to fleshing out the technical and
+practical specifics.
+
+## Test-driven development
+
+In large part, this book is about how to apply the programming technique
 known as **test-driven development** (TDD) on complex,
 real-world software projects. TDD is deceptively simple.
 It’s easy to do, hard to do well. But the reward for doing
