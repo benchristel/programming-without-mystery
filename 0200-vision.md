@@ -319,6 +319,13 @@ it out explicitly.
 
 ### Review Happens Continuously
 
+Most teams do code review: programmers read each others' code to catch mistakes and suggest improvements.
+But TDD, because it externalizes the thought process of designing and writing code, allows programmers
+to critique each others' thought processes and empirical methods during pairing sessions. The "reviewer"
+can see how each test the "author" writes motivates a change to the code, and can verify that refactorings
+are indeed behavior-preserving. This results in higher confidence in the code (not to mention faster review)
+than if they just read the end result.
+
 ### Tests are a Collaboration Tool
 
 tests start conversations
